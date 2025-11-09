@@ -1,0 +1,14 @@
+# FluidNC OpenBuild Configuration
+# Version control for config files
+
+# Exported dumps
+export.json
+current_export.json
+current_running_config.txt
+
+# macOS
+.DS_Store
+
+# Backup files
+*.bak
+*~
