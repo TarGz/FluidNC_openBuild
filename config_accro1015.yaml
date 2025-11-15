@@ -2,9 +2,9 @@ name: TMC2209 XYYZ PWM
 board: FluidNC 4X 2209
 stepping:
   engine: I2S_STREAM
-  idle_ms: 250
+  idle_ms: 0
   dir_delay_us: 1
-  pulse_us: 4
+  pulse_us: 10
   disable_delay_us: 0
 uart1:
   txd_pin: gpio.26
@@ -13,6 +13,34 @@ uart1:
   mode: 8N1
 axes:
   shared_stepper_disable_pin: NO_PIN
+  x:
+    steps_per_mm: 57.300
+    max_rate_mm_per_min: 5000.000
+    acceleration_mm_per_sec2: 100.000
+    max_travel_mm: 5000.000
+    motor0:
+      limit_neg_pin: NO_PIN
+      limit_pos_pin: NO_PIN
+      limit_all_pin: NO_PIN
+      pulloff_mm: 1.000
+      tmc_2209:
+        uart_num: 1
+        addr: 0
+        r_sense_ohms: 0.11
+        run_amps: 1.2
+        hold_amps: 0.5
+        microsteps: 16
+        stallguard: 0
+        stallguard_debug: false
+        toff_disable: 0
+        toff_stealthchop: 5
+        toff_coolstep: 3
+        run_mode: CoolStep
+        homing_mode: CoolStep
+        use_enable: true
+        direction_pin: i2so.1
+        step_pin: i2so.2
+        disable_pin: i2so.0
   z:
     steps_per_mm: 395.8
     max_rate_mm_per_min: 1000
@@ -22,13 +50,13 @@ axes:
       limit_neg_pin: NO_PIN
       limit_pos_pin: NO_PIN
       limit_all_pin: NO_PIN
-      pulloff_mm: 10
+      pulloff_mm: 1.000
       tmc_2209:
         uart_num: 1
         addr: 2
         r_sense_ohms: 0.11
-        run_amps: 1.2
-        hold_amps: 0.5
+        run_amps: 0.5
+        hold_amps: 0.2
         microsteps: 16
         stallguard: 0
         stallguard_debug: false
